@@ -1,0 +1,139 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["interactiveTransactions"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model dc_charge_logs {
+  id         BigInt     @id @default(autoincrement()) @db.UnsignedBigInt
+  charge_id  BigInt     @default(0) @db.UnsignedBigInt
+  kwh        Decimal    @default(0.00) @db.Decimal(65, 2)
+  amount     Decimal    @default(0.000000000) @db.Decimal(65, 9)
+  count_type Int        @default(0)
+  cid        String     @default("") @db.VarChar(255)
+  mtime      DateTime   @default(now()) @db.DateTime(0)
+  ctime      DateTime   @default(now()) @db.DateTime(0)
+  dc_charge  dc_charges @relation(fields: [charge_id], references: [id])
+
+  @@index([charge_id], map: "ix_charge_id")
+  @@index([mtime], map: "ix_mtime")
+}
+
+model dc_charges {
+  id             BigInt           @id @default(autoincrement()) @db.UnsignedBigInt
+  mid            BigInt           @default(0) @db.UnsignedBigInt
+  vehicle_id     String           @default("") @db.VarChar(255)
+  car_nft_id     BigInt           @default(0) @db.UnsignedBigInt
+  charge_status  Int              @default(0)
+  factors        String           @default(dbgenerated("(_utf8mb4\\'\\')")) @db.Text
+  total_kwh      Decimal          @default(0.00) @db.Decimal(65, 2)
+  total_amount   Decimal          @default(0.000000000) @db.Decimal(65, 9)
+  mtime          DateTime         @default(now()) @db.DateTime(0)
+  ctime          DateTime         @default(now()) @db.DateTime(0)
+  dc_charge_logs dc_charge_logs[]
+
+  @@index([mid], map: "ix_mid")
+  @@index([mtime], map: "ix_mtime")
+}
+
+model dc_nft_cars {
+  id                    BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  name                  String   @default("") @db.VarChar(255)
+  mint_address          String   @unique(map: "uk_mint_address") @default("") @db.VarChar(127)
+  token_account_address String   @default("") @db.VarChar(127)
+  photo_url             String   @default("") @db.VarChar(255)
+  photo_local_url       String   @default("") @db.VarChar(255)
+  is_distributed        Boolean  @default(false)
+  is_listed             Boolean  @default(false)
+  owner_mid             BigInt   @default(0) @db.UnsignedBigInt
+  price                 Decimal  @default(0.000000000) @db.Decimal(65, 9)
+  royalties             Int      @default(0) @db.UnsignedInt
+  level                 Int      @default(0) @db.UnsignedInt
+  attribute_horsepower  Int      @default(0) @db.UnsignedInt
+  attribute_durability  Int      @default(0) @db.UnsignedInt
+  attribute_luckiness   Int      @default(0) @db.UnsignedInt
+  type                  Int      @default(0) @db.UnsignedTinyInt
+  rarity                Int      @default(0) @db.UnsignedTinyInt
+  lifespan              Int      @default(0) @db.UnsignedInt
+  car_mint_times        Int      @default(0) @db.UnsignedTinyInt
+  car_parts_1_type      Int      @default(0) @db.UnsignedTinyInt
+  car_parts_1_address   String   @default("") @db.VarChar(127)
+  car_parts_1_rarity    Int      @default(0) @db.UnsignedTinyInt
+  car_parts_2_type      Int      @default(0) @db.UnsignedTinyInt
+  car_parts_2_address   String   @default("") @db.VarChar(127)
+  car_parts_2_rarity    Int      @default(0) @db.UnsignedTinyInt
+  car_parts_3_type      Int      @default(0) @db.UnsignedTinyInt
+  car_parts_3_address   String   @default("") @db.VarChar(127)
+  car_parts_3_rarity    Int      @default(0) @db.UnsignedTinyInt
+  car_parts_4_type      Int      @default(0) @db.UnsignedTinyInt
+  car_parts_4_address   String   @default("") @db.VarChar(127)
+  car_parts_4_rarity    Int      @default(0) @db.UnsignedTinyInt
+  depreciation          Int      @default(100) @db.UnsignedTinyInt
+  mtime                 DateTime @default(now()) @db.DateTime(0)
+  ctime                 DateTime @default(now()) @db.DateTime(0)
+
+  @@index([mtime], map: "ix_mtime")
+}
+
+model dc_transactions {
+  id            BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  fee_payer_pub String   @default("") @db.VarChar(127)
+  from_pub      String   @default("") @db.VarChar(127)
+  to_pub        String   @default("") @db.VarChar(127)
+  mint_pub      String   @default("") @db.VarChar(127)
+  signature     String   @default("") @db.VarChar(255)
+  amount        Decimal  @default(0.000000000) @db.Decimal(65, 9)
+  source        Int      @default(0)
+  tx_type       Int      @default(0)
+  tx_status     Int      @default(0) @db.TinyInt
+  mtime         DateTime @default(now()) @db.DateTime(0)
+  ctime         DateTime @default(now()) @db.DateTime(0)
+
+  @@index([from_pub], map: "ix_from_pub")
+  @@index([mtime], map: "ix_mtime")
+  @@index([to_pub], map: "ix_to_pub")
+}
+
+model dc_users {
+  id                  BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  wallet_pub          String   @unique(map: "uk_wallet_pub") @default("") @db.VarChar(127)
+  wallet_token        String   @default("") @db.VarChar(127)
+  wallet_type         String   @default("") @db.VarChar(127)
+  email               String   @default("") @db.VarChar(255)
+  is_email_verified   Boolean  @default(false)
+  uname               String   @default("") @db.VarChar(127)
+  face                String   @default("") @db.VarChar(255)
+  sex                 Int      @default(0)
+  password            String   @default("") @db.VarChar(255)
+  salt                String   @default("") @db.VarChar(255)
+  last_login_time     DateTime @default(dbgenerated("'0001-01-01 00:00:00'")) @db.DateTime(0)
+  balance             Decimal  @default(0.000000000) @db.Decimal(65, 9)
+  power               Int      @default(0) @db.UnsignedInt
+  vehicle_id          String   @default("") @db.VarChar(255)
+  tesla_refresh_token String   @default("") @db.VarChar(10000)
+  mtime               DateTime @default(now()) @db.DateTime(0)
+  ctime               DateTime @default(now()) @db.DateTime(0)
+
+  dc_balance_logs dc_balance_logs[]
+
+  @@index([mtime], map: "ix_mtime")
+}
+
+model dc_balance_logs {
+  id         BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  mid        BigInt   @default(0) @db.UnsignedBigInt
+  amount     Decimal  @default(0.000000000) @db.Decimal(65, 9)
+  count_type Int      @default(0)
+  source     Int      @default(0)
+  mtime      DateTime @default(now()) @db.DateTime(0)
+  ctime      DateTime @default(now()) @db.DateTime(0)
+
+  dc_users dc_users? @relation(fields: [mid], references: [id])
+
+  @@index([mid], map: "ix_mid")
+  @@index([mtime], map: "ix_mtime")
+}
