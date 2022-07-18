@@ -37,7 +37,7 @@ DriveClean is offering the world an alternative, bottom-up path to carbon neutra
 
 ## Team
 
-DriveClean was developed by the following two Shanghai-based engineers who believed in the tremendous positive externalities that web3 could bring to the world.
+DriveClean was developed by two Shanghai-based engineers who believed in the tremendous positive externalities that web3 could bring to the world.
 
 
 ## Demo
