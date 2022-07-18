@@ -42,3 +42,5 @@ DriveClean was developed by the following two Shanghai-based engineers who belie
 ## Demo
 
 The product is live and can be accessed at https://driveclean.io/alpha (currently Tesla only).
+
+[Demo video](https://youtu.be/5ujkGHpYmZw) 
