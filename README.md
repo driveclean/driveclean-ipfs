@@ -1,34 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## What is DriveClean?
 
-## Getting Started
+DriveClean is a play-to-earn lifestyle app that incentivizes climate-friendly behaviors.
 
-First, run the development server:
+It helps users bring their real-world climate-friendly behaviors on chain as "climate credentials" (stored on IPFS), while earning tokens and enjoying benefits from brand partners.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+We start with charge-to-earn for electric vehicles drivers (e.g. Tesla), with additional rewards for clean energy charging.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Over time, we will incorporate different types of climate credentials (from purchase of plant-based burgers to participation in KlimaDAO) and create an ecosystem of brand partners to provide significant real-world benefits.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Why does DriveClean exist?
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Solving climate change requires global coordination of the entire human race.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+However, government-led initiatives are not getting us to net zero by 2050.
 
-## Learn More
+DriveClean is offering the world an alternative, bottom-up path to carbon neutrality by develop a market-driven, decentralized incentive structures to reward pro-environmental behaviors.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How does DriveClean use IPFS?
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. **NFT Storage**: Users need to acquire NFTs before starting "play-to-earn". All NFTs are stored on IPFS using nft.storage
+2. **Storage of climate credentials**: All EV charging data & user identifiers are stored on IPFS as part of on-chain credentials. These data will accumulate over time and be leveraged by DriveClean and its partner to issue rewards
 
-## Deploy on Vercel
+## Tech stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Solana (Devnet)
+- IPFS
+- TypeScript + React + NextJS
+- Unofficial Tesla API
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Team
+
+DriveClean was developed by the following two Shanghai-based engineers who believed in the tremendous positive externalities that web3 could bring to the world:
+- Bill Zheng
+- Liu Yang
+
+
+## Demo
+
+The product is live and can be accessed at https://driveclean.io/alpha (currently Tesla only)
+
+
