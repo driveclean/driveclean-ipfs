@@ -1,4 +1,6 @@
 ## What is DriveClean?
+![Cover photo](https://github.com/driveclean/driveclean-ipfs/blob/main/Readme_pic_1.jpeg?raw=true)
+
 
 DriveClean is a play-to-earn lifestyle app that incentivizes climate-friendly behaviors.
 
