@@ -1,6 +1,9 @@
 ![Cover photo](https://github.com/driveclean/driveclean-ipfs/blob/main/Readme_pic_1.jpeg?raw=true)
 
 
+DriveClean was built specifically for Sustainability Blockchain Hackathon. You can check out our [demo video](https://youtu.be/5ujkGHpYmZw) and [pitch deck](https://docs.google.com/presentation/d/1Z7hkt037a3H0aCgAkTL--UeTYs-DF7nMntvs3h9RBDM/edit?usp=sharing).
+
+
 ## What is DriveClean?
 
 DriveClean is a play-to-earn lifestyle app that incentivizes climate-friendly behaviors.
@@ -17,7 +20,7 @@ Solving climate change requires global coordination of the entire human race.
 
 However, government-led initiatives are not getting us to net zero by 2050.
 
-DriveClean is offering the world an alternative, bottom-up path to carbon neutrality by develop a market-driven, decentralized incentive structures to reward pro-environmental behaviors.
+DriveClean is offering the world an alternative, bottom-up path to carbon neutrality by develop market-driven, decentralized incentive structures to reward pro-environmental behaviors.
 
 
 ## How does DriveClean use IPFS?
@@ -34,9 +37,7 @@ DriveClean is offering the world an alternative, bottom-up path to carbon neutra
 
 ## Team
 
-DriveClean was developed by the following two Shanghai-based engineers who believed in the tremendous positive externalities that web3 could bring to the world:
-- Bill Zheng
-- Liu Yang
+DriveClean was developed by the following two Shanghai-based engineers who believed in the tremendous positive externalities that web3 could bring to the world.
 
 
 ## Demo
@@ -44,3 +45,5 @@ DriveClean was developed by the following two Shanghai-based engineers who belie
 The product is live and can be accessed at https://driveclean.io/alpha (currently Tesla only).
 
 [Demo video](https://youtu.be/5ujkGHpYmZw) 
+
+[Pitch deck](https://docs.google.com/presentation/d/1Z7hkt037a3H0aCgAkTL--UeTYs-DF7nMntvs3h9RBDM/edit?usp=sharing)
