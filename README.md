@@ -22,8 +22,8 @@ DriveClean is offering the world an alternative, bottom-up path to carbon neutra
 
 ## How does DriveClean use IPFS?
 
-1. **NFT Storage**: Users need to acquire NFTs before starting "play-to-earn". All NFTs are stored on IPFS using nft.storage
-2. **Storage of climate credentials**: All EV charging data & user identifiers are stored on IPFS as part of on-chain credentials. These data will accumulate over time and be leveraged by DriveClean and its partner to issue rewards
+- **Storage of climate credentials**: All EV charging data & user identifiers are stored on IPFS as part of on-chain credentials. These data will accumulate over time and be leveraged by DriveClean and its partner to issue rewards ([code](https://github.com/driveclean/driveclean-ipfs/blob/main/pages/api/cron/check_charge_state.ts))
+- **NFT Storage**: Users need to acquire NFTs before starting "play-to-earn"
 
 ## Tech stack
 
